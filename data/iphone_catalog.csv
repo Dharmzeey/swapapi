@@ -1,0 +1,137 @@
+series_name,series_order,model_name,model_slug,variant_type,model_order,capacity,base_value_ngn
+6,0,iPhone 6,iphone-6,standard,0,16GB,40000
+6,0,iPhone 6,iphone-6,standard,0,32GB,45000
+6,0,iPhone 6,iphone-6,standard,0,64GB,52000
+6,0,iPhone 6,iphone-6,standard,0,128GB,60000
+6,0,iPhone 6 Plus,iphone-6-plus,plus,1,16GB,45000
+6,0,iPhone 6 Plus,iphone-6-plus,plus,1,64GB,58000
+6,0,iPhone 6 Plus,iphone-6-plus,plus,1,128GB,68000
+6,0,iPhone 6s,iphone-6s,s,2,16GB,50000
+6,0,iPhone 6s,iphone-6s,s,2,32GB,55000
+6,0,iPhone 6s,iphone-6s,s,2,64GB,62000
+6,0,iPhone 6s,iphone-6s,s,2,128GB,72000
+6,0,iPhone 6s Plus,iphone-6s-plus,s-plus,3,16GB,55000
+6,0,iPhone 6s Plus,iphone-6s-plus,s-plus,3,32GB,62000
+6,0,iPhone 6s Plus,iphone-6s-plus,s-plus,3,64GB,72000
+6,0,iPhone 6s Plus,iphone-6s-plus,s-plus,3,128GB,85000
+7,1,iPhone 7,iphone-7,standard,0,32GB,80000
+7,1,iPhone 7,iphone-7,standard,0,128GB,95000
+7,1,iPhone 7,iphone-7,standard,0,256GB,110000
+7,1,iPhone 7 Plus,iphone-7-plus,plus,1,32GB,90000
+7,1,iPhone 7 Plus,iphone-7-plus,plus,1,128GB,110000
+7,1,iPhone 7 Plus,iphone-7-plus,plus,1,256GB,128000
+8,2,iPhone 8,iphone-8,standard,0,64GB,120000
+8,2,iPhone 8,iphone-8,standard,0,128GB,140000
+8,2,iPhone 8,iphone-8,standard,0,256GB,160000
+8,2,iPhone 8 Plus,iphone-8-plus,plus,1,64GB,140000
+8,2,iPhone 8 Plus,iphone-8-plus,plus,1,128GB,165000
+8,2,iPhone 8 Plus,iphone-8-plus,plus,1,256GB,185000
+X,3,iPhone X,iphone-x,standard,0,64GB,180000
+X,3,iPhone X,iphone-x,standard,0,256GB,210000
+X,3,iPhone XS,iphone-xs,s,1,64GB,200000
+X,3,iPhone XS,iphone-xs,s,1,256GB,240000
+X,3,iPhone XS,iphone-xs,s,1,512GB,280000
+X,3,iPhone XS Max,iphone-xs-max,max,2,64GB,220000
+X,3,iPhone XS Max,iphone-xs-max,max,2,256GB,260000
+X,3,iPhone XS Max,iphone-xs-max,max,2,512GB,300000
+X,3,iPhone XR,iphone-xr,xr,3,64GB,170000
+X,3,iPhone XR,iphone-xr,xr,3,128GB,190000
+X,3,iPhone XR,iphone-xr,xr,3,256GB,215000
+11,4,iPhone 11,iphone-11,standard,0,64GB,250000
+11,4,iPhone 11,iphone-11,standard,0,128GB,290000
+11,4,iPhone 11,iphone-11,standard,0,256GB,330000
+11,4,iPhone 11 Pro,iphone-11-pro,pro,1,64GB,300000
+11,4,iPhone 11 Pro,iphone-11-pro,pro,1,256GB,360000
+11,4,iPhone 11 Pro,iphone-11-pro,pro,1,512GB,420000
+11,4,iPhone 11 Pro Max,iphone-11-pro-max,max,2,64GB,330000
+11,4,iPhone 11 Pro Max,iphone-11-pro-max,max,2,256GB,390000
+11,4,iPhone 11 Pro Max,iphone-11-pro-max,max,2,512GB,450000
+12,5,iPhone 12 mini,iphone-12-mini,mini,0,64GB,300000
+12,5,iPhone 12 mini,iphone-12-mini,mini,0,128GB,340000
+12,5,iPhone 12 mini,iphone-12-mini,mini,0,256GB,380000
+12,5,iPhone 12,iphone-12,standard,1,64GB,350000
+12,5,iPhone 12,iphone-12,standard,1,128GB,390000
+12,5,iPhone 12,iphone-12,standard,1,256GB,430000
+12,5,iPhone 12 Pro,iphone-12-pro,pro,2,128GB,430000
+12,5,iPhone 12 Pro,iphone-12-pro,pro,2,256GB,490000
+12,5,iPhone 12 Pro,iphone-12-pro,pro,2,512GB,550000
+12,5,iPhone 12 Pro Max,iphone-12-pro-max,max,3,128GB,460000
+12,5,iPhone 12 Pro Max,iphone-12-pro-max,max,3,256GB,520000
+12,5,iPhone 12 Pro Max,iphone-12-pro-max,max,3,512GB,590000
+13,6,iPhone 13 mini,iphone-13-mini,mini,0,128GB,390000
+13,6,iPhone 13 mini,iphone-13-mini,mini,0,256GB,440000
+13,6,iPhone 13 mini,iphone-13-mini,mini,0,512GB,490000
+13,6,iPhone 13,iphone-13,standard,1,128GB,450000
+13,6,iPhone 13,iphone-13,standard,1,256GB,510000
+13,6,iPhone 13,iphone-13,standard,1,512GB,570000
+13,6,iPhone 13 Pro,iphone-13-pro,pro,2,128GB,530000
+13,6,iPhone 13 Pro,iphone-13-pro,pro,2,256GB,600000
+13,6,iPhone 13 Pro,iphone-13-pro,pro,2,512GB,670000
+13,6,iPhone 13 Pro,iphone-13-pro,pro,2,1TB,740000
+13,6,iPhone 13 Pro Max,iphone-13-pro-max,max,3,128GB,570000
+13,6,iPhone 13 Pro Max,iphone-13-pro-max,max,3,256GB,640000
+13,6,iPhone 13 Pro Max,iphone-13-pro-max,max,3,512GB,720000
+13,6,iPhone 13 Pro Max,iphone-13-pro-max,max,3,1TB,800000
+14,7,iPhone 14,iphone-14,standard,0,128GB,580000
+14,7,iPhone 14,iphone-14,standard,0,256GB,650000
+14,7,iPhone 14,iphone-14,standard,0,512GB,720000
+14,7,iPhone 14 Plus,iphone-14-plus,plus,1,128GB,610000
+14,7,iPhone 14 Plus,iphone-14-plus,plus,1,256GB,680000
+14,7,iPhone 14 Plus,iphone-14-plus,plus,1,512GB,760000
+14,7,iPhone 14 Pro,iphone-14-pro,pro,2,128GB,700000
+14,7,iPhone 14 Pro,iphone-14-pro,pro,2,256GB,780000
+14,7,iPhone 14 Pro,iphone-14-pro,pro,2,512GB,860000
+14,7,iPhone 14 Pro,iphone-14-pro,pro,2,1TB,950000
+14,7,iPhone 14 Pro Max,iphone-14-pro-max,max,3,128GB,750000
+14,7,iPhone 14 Pro Max,iphone-14-pro-max,max,3,256GB,840000
+14,7,iPhone 14 Pro Max,iphone-14-pro-max,max,3,512GB,930000
+14,7,iPhone 14 Pro Max,iphone-14-pro-max,max,3,1TB,1020000
+15,8,iPhone 15,iphone-15,standard,0,128GB,720000
+15,8,iPhone 15,iphone-15,standard,0,256GB,800000
+15,8,iPhone 15,iphone-15,standard,0,512GB,880000
+15,8,iPhone 15 Plus,iphone-15-plus,plus,1,128GB,760000
+15,8,iPhone 15 Plus,iphone-15-plus,plus,1,256GB,840000
+15,8,iPhone 15 Plus,iphone-15-plus,plus,1,512GB,930000
+15,8,iPhone 15 Pro,iphone-15-pro,pro,2,128GB,860000
+15,8,iPhone 15 Pro,iphone-15-pro,pro,2,256GB,960000
+15,8,iPhone 15 Pro,iphone-15-pro,pro,2,512GB,1060000
+15,8,iPhone 15 Pro,iphone-15-pro,pro,2,1TB,1180000
+15,8,iPhone 15 Pro Max,iphone-15-pro-max,max,3,256GB,1050000
+15,8,iPhone 15 Pro Max,iphone-15-pro-max,max,3,512GB,1160000
+15,8,iPhone 15 Pro Max,iphone-15-pro-max,max,3,1TB,1300000
+16,9,iPhone 16,iphone-16,standard,0,128GB,900000
+16,9,iPhone 16,iphone-16,standard,0,256GB,1000000
+16,9,iPhone 16,iphone-16,standard,0,512GB,1100000
+16,9,iPhone 16 Plus,iphone-16-plus,plus,1,128GB,950000
+16,9,iPhone 16 Plus,iphone-16-plus,plus,1,256GB,1060000
+16,9,iPhone 16 Plus,iphone-16-plus,plus,1,512GB,1170000
+16,9,iPhone 16 Pro,iphone-16-pro,pro,2,128GB,1100000
+16,9,iPhone 16 Pro,iphone-16-pro,pro,2,256GB,1220000
+16,9,iPhone 16 Pro,iphone-16-pro,pro,2,512GB,1350000
+16,9,iPhone 16 Pro,iphone-16-pro,pro,2,1TB,1500000
+16,9,iPhone 16 Pro Max,iphone-16-pro-max,max,3,256GB,1250000
+16,9,iPhone 16 Pro Max,iphone-16-pro-max,max,3,512GB,1400000
+16,9,iPhone 16 Pro Max,iphone-16-pro-max,max,3,1TB,1600000
+17,10,iPhone 17,iphone-17,standard,0,128GB,1000000
+17,10,iPhone 17,iphone-17,standard,0,256GB,1100000
+17,10,iPhone 17,iphone-17,standard,0,512GB,1210000
+17,10,iPhone 17 Air,iphone-17-air,air,1,128GB,1050000
+17,10,iPhone 17 Air,iphone-17-air,air,1,256GB,1160000
+17,10,iPhone 17 Air,iphone-17-air,air,1,512GB,1280000
+17,10,iPhone 17 Pro,iphone-17-pro,pro,2,128GB,1220000
+17,10,iPhone 17 Pro,iphone-17-pro,pro,2,256GB,1350000
+17,10,iPhone 17 Pro,iphone-17-pro,pro,2,512GB,1500000
+17,10,iPhone 17 Pro,iphone-17-pro,pro,2,1TB,1670000
+17,10,iPhone 17 Pro Max,iphone-17-pro-max,max,3,256GB,1400000
+17,10,iPhone 17 Pro Max,iphone-17-pro-max,max,3,512GB,1560000
+17,10,iPhone 17 Pro Max,iphone-17-pro-max,max,3,1TB,1750000
+17,10,iPhone 17 Pro Max,iphone-17-pro-max,max,3,2TB,1960000
+SE,11,iPhone SE (1st gen),iphone-se-1st-gen,standard,0,16GB,35000
+SE,11,iPhone SE (1st gen),iphone-se-1st-gen,standard,0,32GB,40000
+SE,11,iPhone SE (1st gen),iphone-se-1st-gen,standard,0,64GB,45000
+SE,11,iPhone SE (2nd gen),iphone-se-2nd-gen,standard,1,64GB,150000
+SE,11,iPhone SE (2nd gen),iphone-se-2nd-gen,standard,1,128GB,175000
+SE,11,iPhone SE (2nd gen),iphone-se-2nd-gen,standard,1,256GB,200000
+SE,11,iPhone SE (3rd gen),iphone-se-3rd-gen,standard,2,64GB,200000
+SE,11,iPhone SE (3rd gen),iphone-se-3rd-gen,standard,2,128GB,230000
+SE,11,iPhone SE (3rd gen),iphone-se-3rd-gen,standard,2,256GB,260000

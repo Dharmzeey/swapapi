@@ -96,9 +96,7 @@ class DefectType(models.Model):
     slug = models.SlugField(unique=True)
     description = models.TextField(blank=True)
     category = models.CharField(max_length=20, choices=Category.choices)
-    default_deduction_pct = models.DecimalField(
-        max_digits=5,
-        decimal_places=2,
+    default_deduction_pct = models.PositiveIntegerField(
         help_text=(
             "Fallback % deducted from base_value_ngn when no per-model DefectPricing "
             "row exists. Multiplicative stacking: final = base × ∏(1 − pct/100)."
@@ -117,7 +115,7 @@ class DefectType(models.Model):
         ordering = ["order"]
 
     def __str__(self):
-        return f"{self.name} (default -{self.default_deduction_pct}%)"
+        return f"{self.name} (default -{self.default_deduction_pct} %)"
 
 
 class DefectPricing(models.Model):
@@ -152,9 +150,7 @@ class DefectPricing(models.Model):
         on_delete=models.CASCADE,
         related_name="defect_pricing",
     )
-    deduction_pct = models.DecimalField(
-        max_digits=5,
-        decimal_places=2,
+    deduction_pct = models.PositiveIntegerField(
         help_text="% deducted from this model's base_value_ngn for this defect.",
     )
     repair_cost_ngn = models.PositiveIntegerField(
