@@ -18,7 +18,7 @@ class IphoneModelSerializer(serializers.ModelSerializer):
 class StorageVariantSerializer(serializers.ModelSerializer):
     class Meta:
         model = StorageVariant
-        fields = ("id", "capacity", "base_value_ngn")
+        fields = ("id", "capacity", "swap_in_value_ngn")
 
 
 class DefectTypeSerializer(serializers.ModelSerializer):

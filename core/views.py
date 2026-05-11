@@ -132,7 +132,9 @@ class EstimateView(APIView):
         ) if data["defect_ids"] else []
 
         # ── Pricing calculation ───────────────────────────────────────────────
-        from_value = from_storage.base_value_ngn
+        # from_value starts at swap_in_value_ngn (what the shop pays for the used phone)
+        # to_value uses uk_end_user_price_ngn (UK-condition end-user price for the target phone)
+        from_value = from_storage.swap_in_value_ngn
         total_repair_cost = 0
         repair_breakdown = []
 
@@ -158,7 +160,7 @@ class EstimateView(APIView):
             })
 
         from_value_int = from_value
-        to_value = to_storage.base_value_ngn
+        to_value = to_storage.uk_end_user_price_ngn
         service_fee = int(getattr(settings, "SWAP_SERVICE_FEE_NGN", 10_000))
         net = (to_value - from_value_int) + total_repair_cost + service_fee
 
@@ -174,7 +176,7 @@ class EstimateView(APIView):
             session_key=session_key,
             from_storage=from_storage,
             to_storage=to_storage,
-            from_base_value_ngn=from_storage.base_value_ngn,
+            from_base_value_ngn=from_storage.swap_in_value_ngn,
             from_value_ngn=from_value_int,
             total_repair_cost_ngn=total_repair_cost,
             to_value_ngn=to_value,
@@ -186,7 +188,7 @@ class EstimateView(APIView):
         # ── Response ──────────────────────────────────────────────────────────
         return Response({
             "from_device": str(from_storage),
-            "from_base_value_ngn": from_storage.base_value_ngn,
+            "from_base_value_ngn": from_storage.swap_in_value_ngn,
             "from_value_ngn": from_value_int,
             "to_device": str(to_storage),
             "to_value_ngn": to_value,

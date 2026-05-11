@@ -15,7 +15,7 @@ from .models import (
 class StorageVariantInline(admin.TabularInline):
     model = StorageVariant
     extra = 1
-    fields = ("capacity", "base_value_ngn", "is_active")
+    fields = ("capacity", "swap_in_value_ngn", "uk_end_user_price_ngn", "is_active")
 
 
 class DefectPricingByModelInline(admin.TabularInline):
@@ -59,9 +59,9 @@ class IphoneModelAdmin(admin.ModelAdmin):
 
 @admin.register(StorageVariant)
 class StorageVariantAdmin(admin.ModelAdmin):
-    list_display = ("model", "capacity", "base_value_ngn", "is_active")
+    list_display = ("model", "capacity", "swap_in_value_ngn", "uk_end_user_price_ngn", "ng_end_user_price_ngn", "is_active")
     list_filter = ("model__series", "capacity", "is_active")
-    list_editable = ("base_value_ngn", "is_active")
+    list_editable = ("swap_in_value_ngn", "uk_end_user_price_ngn", "is_active")
     search_fields = ("model__name",)
 
 

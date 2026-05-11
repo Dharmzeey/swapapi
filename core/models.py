@@ -52,8 +52,26 @@ class StorageVariant(models.Model):
 
     model = models.ForeignKey(IphoneModel, on_delete=models.CASCADE, related_name="storage_variants")
     capacity = models.CharField(max_length=10, choices=Capacity.choices)
-    base_value_ngn = models.PositiveIntegerField(
-        help_text="Trade-in value for a perfect-condition device (NGN). Update as market rates shift.",
+    swap_in_value_ngn = models.PositiveIntegerField(
+        help_text="What the shop pays when accepting this used phone (NGN). Update as market rates shift.",
+    )
+    uk_end_user_price_ngn = models.PositiveIntegerField(
+        help_text="UK-condition end-user market price (NGN). Used as the swap-to price in estimates.",
+    )
+    uk_reseller_price_ngn = models.PositiveIntegerField(
+        help_text="UK-condition reseller price (NGN).",
+        null=True,
+        blank=True,
+    )
+    ng_end_user_price_ngn = models.PositiveIntegerField(
+        help_text="Nigerian-used end-user price after shop refurbishment (NGN).",
+        null=True,
+        blank=True,
+    )
+    ng_reseller_price_ngn = models.PositiveIntegerField(
+        help_text="Nigerian-used reseller price (NGN).",
+        null=True,
+        blank=True,
     )
     is_active = models.BooleanField(default=True)
 
@@ -195,7 +213,7 @@ class SwapEstimate(models.Model):
     # Computed and snapshotted at estimate time so historical records are stable
     # even when admin updates base values or repair costs later.
     from_base_value_ngn = models.PositiveIntegerField(
-        help_text="Snapshot of from_storage.base_value_ngn at estimate time.",
+        help_text="Snapshot of from_storage.swap_in_value_ngn at estimate time.",
     )
     from_value_ngn = models.PositiveIntegerField(
         help_text="Trade-in value after all deductions applied.",
@@ -205,7 +223,7 @@ class SwapEstimate(models.Model):
         help_text="Sum of repair_cost_ngn for all declared defects on this model.",
     )
     to_value_ngn = models.PositiveIntegerField(
-        help_text="Snapshot of to_storage.base_value_ngn at estimate time.",
+        help_text="Snapshot of to_storage.uk_end_user_price_ngn at estimate time.",
     )
     service_fee_ngn = models.PositiveIntegerField(
         help_text="Flat service charge at time of estimate (from settings.SWAP_SERVICE_FEE_NGN).",

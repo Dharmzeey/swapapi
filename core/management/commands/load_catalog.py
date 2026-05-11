@@ -78,18 +78,43 @@ class Command(BaseCommand):
                     model=model,
                     capacity=row["capacity"],
                     defaults={
-                        "base_value_ngn": int(row["base_value_ngn"]),
+                        "swap_in_value_ngn": int(row["swap_in_value_ngn"]),
+                        "uk_end_user_price_ngn": int(row["uk_end_user_price_ngn"]),
+                        "uk_reseller_price_ngn": int(row["uk_reseller_price_ngn"]) if row["uk_reseller_price_ngn"] else None,
+                        "ng_end_user_price_ngn": int(row["ng_end_user_price_ngn"]) if row["ng_end_user_price_ngn"] else None,
+                        "ng_reseller_price_ngn": int(row["ng_reseller_price_ngn"]) if row["ng_reseller_price_ngn"] else None,
                         "is_active": True,
                     },
                 )
                 if sv_new:
                     created_storage += 1
                 else:
-                    # Update price if it changed in the CSV
-                    new_value = int(row["base_value_ngn"])
-                    if storage.base_value_ngn != new_value:
-                        storage.base_value_ngn = new_value
-                        storage.save(update_fields=["base_value_ngn"])
+                    # Update prices if any changed in the CSV
+                    new_swap_in = int(row["swap_in_value_ngn"])
+                    new_uk_end = int(row["uk_end_user_price_ngn"])
+                    new_uk_res = int(row["uk_reseller_price_ngn"]) if row["uk_reseller_price_ngn"] else None
+                    new_ng_end = int(row["ng_end_user_price_ngn"]) if row["ng_end_user_price_ngn"] else None
+                    new_ng_res = int(row["ng_reseller_price_ngn"]) if row["ng_reseller_price_ngn"] else None
+                    changed = (
+                        storage.swap_in_value_ngn != new_swap_in
+                        or storage.uk_end_user_price_ngn != new_uk_end
+                        or storage.uk_reseller_price_ngn != new_uk_res
+                        or storage.ng_end_user_price_ngn != new_ng_end
+                        or storage.ng_reseller_price_ngn != new_ng_res
+                    )
+                    if changed:
+                        storage.swap_in_value_ngn = new_swap_in
+                        storage.uk_end_user_price_ngn = new_uk_end
+                        storage.uk_reseller_price_ngn = new_uk_res
+                        storage.ng_end_user_price_ngn = new_ng_end
+                        storage.ng_reseller_price_ngn = new_ng_res
+                        storage.save(update_fields=[
+                            "swap_in_value_ngn",
+                            "uk_end_user_price_ngn",
+                            "uk_reseller_price_ngn",
+                            "ng_end_user_price_ngn",
+                            "ng_reseller_price_ngn",
+                        ])
                         updated_storage += 1
 
         self.stdout.write(self.style.SUCCESS(
