@@ -1,5 +1,7 @@
 from django.db import models
 
+from .pricing import compute_prices
+
 
 class IphoneSeries(models.Model):
     name = models.CharField(max_length=20)  # e.g. "6", "7", "8", "X", "11" ... "17", "SE"
@@ -81,6 +83,26 @@ class StorageVariant(models.Model):
 
     def __str__(self):
         return f"{self.model.name} · {self.capacity}"
+
+    def save(self, *args, **kwargs):
+        """Auto-recompute all derived price fields whenever uk_reseller_price_ngn is set."""
+        if self.uk_reseller_price_ngn:
+            p = compute_prices(self.model.slug, self.uk_reseller_price_ngn)
+            self.uk_end_user_price_ngn = p["uk_end"]
+            self.swap_in_value_ngn     = p["swap_in"]
+            self.ng_reseller_price_ngn = p["ng_reseller"]
+            self.ng_end_user_price_ngn = p["ng_end"]
+            # Expand update_fields so derived columns are also persisted
+            if "update_fields" in kwargs and kwargs["update_fields"] is not None:
+                kwargs["update_fields"] = list(
+                    set(kwargs["update_fields"]) | {
+                        "uk_end_user_price_ngn",
+                        "swap_in_value_ngn",
+                        "ng_reseller_price_ngn",
+                        "ng_end_user_price_ngn",
+                    }
+                )
+        super().save(*args, **kwargs)
 
 
 class DefectType(models.Model):
