@@ -21,14 +21,14 @@ from core.models import IphoneModel, IphoneSeries, StorageVariant
 class Command(BaseCommand):
     help = "Load iPhone series, models and storage variants from the catalog CSV."
 
-    DEFAULT_CSV = Path(__file__).resolve().parents[3] / "data" / "iphone_catalog.csv"
+    DEFAULT_CSV = Path(__file__).resolve().parents[3] / "data" / "iphone_catalog_2.csv"
 
     def add_arguments(self, parser):
         parser.add_argument(
             "--csv",
             dest="csv_path",
             default=str(self.DEFAULT_CSV),
-            help="Path to the CSV file (default: data/iphone_catalog.csv)",
+            help="Path to the CSV file (default: data/iphone_catalog_2.csv)",
         )
         parser.add_argument(
             "--clear",
