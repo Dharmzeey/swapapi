@@ -40,7 +40,7 @@ _DEVALUATION: dict = {
     # XR
     "iphone-xr":          70_000,
     # 11 series
-    "iphone-11":          80_000,
+    "iphone-11":          90_000,
     "iphone-11-pro":     100_000,
     "iphone-11-pro-max": 150_000,
     # 12 series
