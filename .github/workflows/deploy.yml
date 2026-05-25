@@ -2,7 +2,7 @@ name: CI/CD Pipeline with GHCR
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "masster" ]
 
 jobs:
   build:
