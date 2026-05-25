@@ -2,4 +2,4 @@
 
 python manage.py collectstatic --noinput
 python manage.py migrate --noinput
-exec gunicorn --bind 0.0.0.0:8000 --workers 3 swapapi.wsgi:application
+exec gunicorn --bind 0.0.0.0:8000 --workers 2 swapapi.wsgi:application
