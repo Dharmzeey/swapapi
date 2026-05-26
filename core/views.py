@@ -1,7 +1,11 @@
 from django.conf import settings
+from django.core.cache import cache
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+# Catalog data rarely changes — cache for 2 hours.
+CATALOG_TTL = 60 * 60 * 2
 
 from .models import DefectPricing, DefectType, IphoneModel, IphoneSeries, StorageVariant, SwapEstimate
 from .serializers import (
@@ -17,18 +21,28 @@ class SeriesListView(generics.ListAPIView):
     """
     GET /api/series/
     Returns all active iPhone series ordered by release generation.
+    Cached for CATALOG_TTL — invalidated automatically on expiry.
     """
     serializer_class = IphoneSeriesSerializer
 
     def get_queryset(self):
         return IphoneSeries.objects.filter(is_active=True)
 
+    def list(self, request, *args, **kwargs):
+        key = "catalog:series"
+        cached = cache.get(key)
+        if cached is not None:
+            return Response(cached)
+        response = super().list(request, *args, **kwargs)
+        cache.set(key, response.data, CATALOG_TTL)
+        return response
+
 
 class ModelListView(generics.ListAPIView):
     """
     GET /api/models/<series_id>/
     Returns active models belonging to the given series.
-    404 if the series doesn't exist or is inactive.
+    Cached per series_id.
     """
     serializer_class = IphoneModelSerializer
 
@@ -39,11 +53,21 @@ class ModelListView(generics.ListAPIView):
             is_active=True,
         ).select_related("series")
 
+    def list(self, request, *args, **kwargs):
+        key = f"catalog:models:{self.kwargs['series_id']}"
+        cached = cache.get(key)
+        if cached is not None:
+            return Response(cached)
+        response = super().list(request, *args, **kwargs)
+        cache.set(key, response.data, CATALOG_TTL)
+        return response
+
 
 class StorageListView(generics.ListAPIView):
     """
     GET /api/storage/<model_id>/
     Returns active storage variants for the given model.
+    Cached per model_id.
     """
     serializer_class = StorageVariantSerializer
 
@@ -54,17 +78,35 @@ class StorageListView(generics.ListAPIView):
             is_active=True,
         ).select_related("model")
 
+    def list(self, request, *args, **kwargs):
+        key = f"catalog:storage:{self.kwargs['model_id']}"
+        cached = cache.get(key)
+        if cached is not None:
+            return Response(cached)
+        response = super().list(request, *args, **kwargs)
+        cache.set(key, response.data, CATALOG_TTL)
+        return response
+
 
 class DefectListView(generics.ListAPIView):
     """
     GET /api/defects/
     Returns full active defect catalogue grouped by category.
-    Called once on page load; the client caches the result.
+    Cached for CATALOG_TTL.
     """
     serializer_class = DefectTypeSerializer
 
     def get_queryset(self):
         return DefectType.objects.filter(is_active=True)
+
+    def list(self, request, *args, **kwargs):
+        key = "catalog:defects"
+        cached = cache.get(key)
+        if cached is not None:
+            return Response(cached)
+        response = super().list(request, *args, **kwargs)
+        cache.set(key, response.data, CATALOG_TTL)
+        return response
 
 
 class EstimateView(APIView):
