@@ -38,11 +38,13 @@ def _eu_markup(uk_reseller: int) -> int:
 # ── Swap-in devaluation (fixed per model) ─────────────────────────────────────
 _DEVALUATION: dict = {
     # XR
-    "iphone-xr":          70_000,
+    "iphone-xr":          60_000,
+    'iphone-xs':          80_000,
+    'iphone-xs-max':     100_000,
     # 11 series
-    "iphone-11":          90_000,
-    "iphone-11-pro":     100_000,
-    "iphone-11-pro-max": 150_000,
+    "iphone-11":          70_000,
+    "iphone-11-pro":     90_000,
+    "iphone-11-pro-max": 130_000,
     # 12 series
     "iphone-12-mini":    110_000,
     "iphone-12":         120_000,
@@ -66,8 +68,8 @@ _DEVALUATION: dict = {
     # 16 series
     "iphone-16":         150_000,
     "iphone-16-plus":    150_000,
-    "iphone-16-pro":     180_000,
-    "iphone-16-pro-max": 180_000,
+    "iphone-16-pro":     210_000,
+    "iphone-16-pro-max": 220_000,
     # 17 series (update once swap-in market stabilises)
     "iphone-17":         200_000,
     "iphone-17-air":     230_000,
