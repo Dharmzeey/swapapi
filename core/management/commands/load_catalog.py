@@ -35,6 +35,12 @@ class Command(BaseCommand):
             action="store_true",
             help="Delete all existing series, models and storage variants before loading.",
         )
+        parser.add_argument(
+            "--reprice",
+            action="store_true",
+            help="Force-recompute all derived price fields (swap_in, uk_end, ng_*) from "
+                 "current pricing.py rules, even when uk_reseller_price_ngn has not changed.",
+        )
 
     def handle(self, *args, **options):
         csv_path = Path(options["csv_path"])
@@ -86,8 +92,8 @@ class Command(BaseCommand):
                 )
                 if sv_new:
                     created_storage += 1
-                elif storage.uk_reseller_price_ngn != uk_reseller:
-                    # UK price changed — update it; save() recomputes derived fields.
+                elif storage.uk_reseller_price_ngn != uk_reseller or options["reprice"]:
+                    # UK price changed, or --reprice flag: save() recomputes derived fields.
                     storage.uk_reseller_price_ngn = uk_reseller
                     storage.save()
                     updated_storage += 1
